@@ -1,0 +1,75 @@
+/* colors: #caf0f8 #edf2f4 #1f233b #90e0ef */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1f233b;
+  color: #edf2f4;
+}
+
+/* navigation */
+
+.navbar {
+  border-bottom: 1px solid #edf2f4;
+}
+.navbar .navbar-brand {
+  color: #edf2f4;
+}
+.navbar .navbar-brand img {
+  width: 30px;
+  margin-right: 10px;
+}
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0;
+}
+.navbar-toggler-icon {
+  margin-top: 15%;
+  background-image: none;
+  color: #edf2f4;
+  display: flex;
+  flex-wrap: wrap;
+}
+/* burger */
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: #edf2f4;
+  transition: 0.3s;
+}
+.bar:nth-of-type(1).active {
+  transform: rotate(45deg) translate(6px, 7px);
+}
+.bar:nth-of-type(2).active {
+  transform: scale(0);
+}
+.bar:nth-of-type(3).active {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.navbar-nav .nav-link {
+  color: #edf2f4;
+}
+.navbar-nav .nav-link.active {
+  color: #90e0ef;
+  font-weight: 700;
+}
+
+.header {
+  margin: 5% auto;
+  width: 90%;
+}
+.header .title {
+  color: #caf0f8;
+  font-size: 1.5em;
+  text-align: center;
+}
+.header .title span {
+  color: #90e0ef;
+  font-size: 1.2em;
+}
