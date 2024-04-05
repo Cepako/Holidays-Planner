@@ -36,13 +36,81 @@
 .modal-form {
   position: fixed;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  transform: translateX(-50%);
+  padding: 2% 3%;
   width: 95%;
+  border: 1px solid #90e0ef;
+  background-color: #1f233b;
+  color: white;
 }
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
 }
-.modal-form img {
+.modal-form .place {
+  text-align: center;
+}
+.modal-form .place img {
   width: 100%;
+  border: 1px solid #90e0ef;
+}
+.modal-form .place h3 {
+  margin-block: 5px;
+}
+.modal-form .date-warning {
+  margin: 0;
+  display: none;
+  color: red;
+}
+.modal-form .date-warning.active {
+  display: block;
+}
+
+form label {
+  margin: 1% 0;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+form input[type='text'] {
+  outline: none;
+}
+form input[type='email'] {
+  margin-left: 10%;
+  outline: none;
+}
+
+form label.date {
+  margin-right: 2%;
+  width: 45%;
+  font-size: 1em;
+}
+form input[type='date'] {
+  width: 100%;
+}
+legend {
+  margin-block: 2%;
+  font-size: 1.1em;
+}
+form #radios label {
+  width: 33%;
+  font-size: 1em;
+}
+form #checkboxs label {
+  width: 45%;
+  margin-block: 0;
+  font-size: 1em;
+}
+form #checkboxs input {
+  margin-right: 3%;
+}
+dialog button {
+  padding: 1%;
+  width: 100%;
+  border: none;
+  background-color: #4e5580;
+  color: white;
+}
+form button {
+  margin-block: 5% 2%;
 }
