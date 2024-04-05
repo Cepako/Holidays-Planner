@@ -123,6 +123,7 @@ main p {
   width: 100%;
   border: 1px solid #90e0ef;
   border-radius: 5px;
+  text-align: center;
 }
 .trending-places .cart img {
   width: 100%;
@@ -131,13 +132,11 @@ main p {
 .trending-places .cart h3 {
   margin-block: 5%;
   font-size: 1.2em;
-  text-align: center;
 }
 .trending-places .cart p {
   width: 90%;
   margin: 5% auto;
   font-size: 0.8em;
-  text-align: center;
 }
 
 /* info */

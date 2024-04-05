@@ -1,0 +1,48 @@
+.places-container {
+  width: 95%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+}
+.places-container .cart {
+  margin: 5% 0;
+  width: 100%;
+  border: 1px solid #90e0ef;
+  border-radius: 5px;
+  text-align: center;
+}
+.places-container .cart img {
+  width: 100%;
+  border-radius: 5px;
+}
+.places-container .cart h3 {
+  margin-block: 5%;
+  font-size: 1.2em;
+}
+.places-container .cart p {
+  width: 90%;
+  margin: 5% auto;
+  font-size: 0.8em;
+}
+.places-container .cart button {
+  margin: 5% 0;
+  padding: 3% 2%;
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  background-color: #4e5580;
+  color: white;
+}
+.modal-form {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-form img {
+  width: 100%;
+}
