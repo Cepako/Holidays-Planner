@@ -47,23 +47,61 @@ const generateTrendingPlaces = (data) => {
   }
 };
 
-//modal and form
+const initDate = () => {
+  //set initial, min and max date for date inputs
+  const date = new Date();
+  const startDate = document.getElementById('start-date');
+  startDate.valueAsDate = date;
+  startDate.min = date.toISOString().split('T')[0];
+  const endDate = document.getElementById('end-date');
+  date.setDate(date.getDate() + 1);
+  endDate.valueAsDate = date;
+  endDate.min = date.toISOString().split('T')[0];
+  date.setFullYear(date.getFullYear() + 1);
+  endDate.max = date.toISOString().split('T')[0];
+  const dateWarning = document.querySelector('.date-warning');
 
+  //date validation
+  const checkDate = () => {
+    const startDateValue = new Date(startDate.value);
+    const endDateValue = new Date(endDate.value);
+
+    if (endDateValue <= startDateValue) dateWarning.classList.add('active');
+    else dateWarning.classList.remove('active');
+  };
+  checkDate();
+  startDate.addEventListener('change', checkDate);
+  endDate.addEventListener('change', checkDate);
+};
+
+//modal and form
 const openForm = ({ title, image }) => {
   const modal = document.querySelector('.modal-form');
-  modal.innerHTML = '';
+  const closeModal = document.querySelector('.close');
+  closeModal.addEventListener('click', () => modal.close());
+
+  //data reset
+  document.getElementById('first-name').value = '';
+  document.getElementById('last-name').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('yes').checked = false;
+  document.getElementById('no').checked = false;
+  document.getElementById('friends-number').value = '';
+  document
+    .querySelectorAll('input[type="checkbox"]:checked')
+    .forEach((input) => (input.checked = false));
+
+  const placeDiv = document.querySelector('.modal-form .place');
+  placeDiv.innerHTML = '';
   const modalImage = document.createElement('img');
   modalImage.src = `../images/${image.src}`;
   modalImage.alt = image.alt;
   const modalTitle = document.createElement('h3');
   modalTitle.textContent = title;
-  const closeModal = document.createElement('button');
-  closeModal.textContent = 'Close';
-  closeModal.addEventListener('click', () => modal.close());
-  modal.appendChild(modalImage);
-  modal.appendChild(modalTitle);
-  modal.appendChild(closeModal);
+  placeDiv.appendChild(modalImage);
+  placeDiv.appendChild(modalTitle);
 
+  initDate();
   modal.showModal();
 };
 
