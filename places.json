@@ -1,0 +1,164 @@
+[
+  {
+    "id": "p1",
+    "title": "Forest Waterfall",
+    "image": {
+      "src": "forest-waterfall.jpg",
+      "alt": "A tranquil forest with a cascading waterfall amidst greenery."
+    },
+    "short_description": "A hidden gem in the heart of nature, where water cascades from a height, creating a picturesque landscape surrounded by lush trees and the sounds of wildlife."
+  },
+  {
+    "id": "p2",
+    "title": "Sahara Desert Dunes",
+    "image": {
+      "src": "desert-dunes.jpg",
+      "alt": "Golden dunes stretching to the horizon in the Sahara Desert."
+    },
+    "short_description": "Endless sand dunes painting the desert landscape, creating a mesmerizing play of light and shadow under the sun, far away from civilization where silence has its own rhythm."
+  },
+  {
+    "id": "p3",
+    "title": "Himalayan Peaks",
+    "image": {
+      "src": "majestic-mountains.jpg",
+      "alt": "The sun setting behind snow-capped peaks of majestic mountains."
+    },
+    "short_description": "Majestic mountains reaching towards the sky, shrouded in misty clouds, captivating with their power and beauty, posing a challenge for mountaineers."
+  },
+  {
+    "id": "p4",
+    "title": "Caribbean Beach",
+    "image": {
+      "src": "caribbean-beach.jpg",
+      "alt": "Pristine white sand and turquoise waters of a Caribbean beach."
+    },
+    "short_description": "Blue waters of the ocean meeting golden sands of the beach, where palm trees sway in the breeze, creating a heavenly landscape inviting relaxation and basking in the sun."
+  },
+  {
+    "id": "p5",
+    "title": "Ancient Grecian Ruins",
+    "image": {
+      "src": "ruins.jpg",
+      "alt": "Historic ruins standing tall against the backdrop of the Grecian sky."
+    },
+    "short_description": "Testimony to the past, where the ruins of ancient buildings bring history to life, reminding us of bygone eras and cultures that shaped our world."
+  },
+  {
+    "id": "p6",
+    "title": "Amazon Rainforest Canopy",
+    "image": {
+      "src": "rainforest.jpg",
+      "alt": "Lush canopy of a rainforest, teeming with life."
+    },
+    "short_description": "Dense greenery forming a canopy overhead, sheltering hundreds of plant and animal species, at the heart of an incredible ecosystem that sustains life for many creatures."
+  },
+  {
+    "id": "p7",
+    "title": "Northern Lights",
+    "image": {
+      "src": "northern-lights.jpg",
+      "alt": "Dazzling display of the Northern Lights in a starry sky."
+    },
+    "short_description": "Dance of lights in the sky, painting the night landscape in extraordinary colors, creating a magical spectacle that remains etched in memory forever."
+  },
+  {
+    "id": "p8",
+    "title": "Japanese Temple",
+    "image": {
+      "src": "japanese-temple.jpg",
+      "alt": "Ancient Japanese temple surrounded by autumn foliage."
+    },
+    "short_description": "A place of tranquility and contemplation, steeped in tradition and history, where spirituality blends with the harmony of architecture and nature."
+  },
+  {
+    "id": "p9",
+    "title": "Great Barrier Reef",
+    "image": {
+      "src": "great-barrier-reef.jpg",
+      "alt": "Vibrant coral formations of the Great Barrier Reef underwater."
+    },
+    "short_description": "Underwater world full of colors and life, where coral reef creates an extraordinary ecosystem, home to thousands of fish and other marine creatures."
+  },
+  {
+    "id": "p10",
+    "title": "Parisian Streets",
+    "image": {
+      "src": "parisian-streets.jpg",
+      "alt": "Charming streets of Paris with historic buildings and cafes."
+    },
+    "short_description": "Picturesque alleys of the city of love, where history and culture meet at every step, creating a unique charm of urban life."
+  },
+  {
+    "id": "p11",
+    "title": "Grand Canyon",
+    "image": {
+      "src": "grand-canyon.jpg",
+      "alt": "Expansive view of the deep gorges and ridges of the Grand Canyon."
+    },
+    "short_description": "Nature's masterpiece, sculpted by thousands of years of erosion, forming a spectacular cathedral of rock formations and deep ravines."
+  },
+  {
+    "id": "p12",
+    "title": "Venetian Canals",
+    "image": {
+      "src": "venetian-canals.jpg",
+      "alt": "Glistening waters of the Venetian canals as gondolas glide by at sunset."
+    },
+    "short_description": "A labyrinth of waterways where boats glide between historic buildings, enveloping in an atmosphere of romance and mystery."
+  },
+  {
+    "id": "p13",
+    "title": "Taj Mahal",
+    "image": {
+      "src": "taj-mahal.jpg",
+      "alt": "The iconic Taj Mahal reflecting in its surrounding waters during sunrise."
+    },
+    "short_description": "Symbol of love and architectural beauty, which captivates with its symmetry and delicacy, standing as a monument to eternal love."
+  },
+  {
+    "id": "p14",
+    "title": "Kerala Backwaters",
+    "image": {
+      "src": "kerala-backwaters.jpg",
+      "alt": "Tranquil waters and lush greenery of the Kerala backwaters."
+    },
+    "short_description": "Serene waters winding through green hills and palm trees, creating a picturesque landscape of the region where life flows in rhythm with nature."
+  },
+  {
+    "id": "p15",
+    "title": "African Savanna",
+    "image": {
+      "src": "african-savanna.jpg",
+      "alt": "Wild animals roaming freely in the vast landscapes of the African savanna."
+    },
+    "short_description": "Endless grasslands where elephants, lions, and giraffes roam freely, creating a unique picture of wild nature."
+  },
+  {
+    "id": "p16",
+    "title": "Victoria Falls",
+    "image": {
+      "src": "victoria-falls.jpg",
+      "alt": "The powerful cascade of Victoria Falls, a natural wonder between Zambia and Zimbabwe."
+    },
+    "short_description": "Mighty curtain of water cascading from a height, creating a vibrant landscape pulsating with energy and offering a breathtaking view that commands respect for the power of nature."
+  },
+  {
+    "id": "p17",
+    "title": "Machu Picchu",
+    "image": {
+      "src": "machu-picchu.jpg",
+      "alt": "The historic Incan citadel of Machu Picchu illuminated by the morning sun."
+    },
+    "short_description": "Lost among the Andean mountains, the ruins of an ancient civilization that captivate with their extraordinary architecture and mystical location."
+  },
+  {
+    "id": "p18",
+    "title": "Amazon River",
+    "image": {
+      "src": "amazon-river.jpg",
+      "alt": "Navigating the waters of the Amazon River, surrounded by dense rainforest."
+    },
+    "short_description": "Mighty river traversing the densest forests on Earth, serving as the lifeblood for the wild fauna and flora of the Amazon, hiding the secrets of the endless rainforest within its waters."
+  }
+]
