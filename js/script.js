@@ -38,8 +38,11 @@ const generatePlaces = (data) => {
     img.alt = data[i].image.alt;
     const title = document.createElement('h3');
     title.textContent = data[i].title;
+    const description = document.createElement('p');
+    description.textContent = data[i].short_description;
     cart.appendChild(img);
     cart.appendChild(title);
+    cart.appendChild(description);
     container.appendChild(cart);
   }
 };

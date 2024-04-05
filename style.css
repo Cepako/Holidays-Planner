@@ -68,13 +68,13 @@ body {
 }
 .header .title {
   color: #caf0f8;
-  font-size: 1.5em;
+  font-size: 1.8em;
   line-height: 130%;
   text-align: center;
 }
 .header .title span {
   color: #90e0ef;
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 .header p {
   margin: 5% 0;
@@ -133,9 +133,33 @@ main p {
   font-size: 1.2em;
   text-align: center;
 }
+.trending-places .cart p {
+  width: 90%;
+  margin: 5% auto;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+/* info */
+.info {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+.info h2 {
+  padding: 5% 0;
+  font-size: 1.3em;
+  border-top: 2px solid #90e0ef;
+  border-bottom: 2px solid #90e0ef;
+}
+.info p {
+  margin: 5% 0;
+  width: 95%;
+}
 
 /* footer */
 footer {
   padding: 5%;
   text-align: center;
+  border-top: 1px solid #90e0ef;
 }
