@@ -135,6 +135,7 @@ const inputValuesReset = () => {
 
 //modal and form
 const openForm = ({ title, image }) => {
+  const modal = document.querySelector('.modal-form');
   inputValuesReset();
   const placeDiv = document.querySelector('.modal-form .place');
   placeDiv.innerHTML = '';
@@ -174,10 +175,6 @@ const generateAvailablePlaces = (data) => {
   }
 };
 
-const modal = document.querySelector('.modal-form');
-const closeModal = document.querySelector('.close');
-closeModal.addEventListener('click', () => modal.close());
-
 if (document.querySelector('.nav-link.active').textContent === 'Home')
   fetchData(generateTrendingPlaces);
 else if (
@@ -186,6 +183,9 @@ else if (
   console.log(document.querySelector('.nav-link.active').textContent);
 } else {
   fetchData(generateAvailablePlaces);
+  const modal = document.querySelector('.modal-form');
+  const closeModal = document.querySelector('.close');
+  closeModal.addEventListener('click', () => modal.close());
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     if (!document.querySelector('.date-warning').classList.contains('active')) {
