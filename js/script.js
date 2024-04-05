@@ -74,13 +74,53 @@ const initDate = () => {
   endDate.addEventListener('change', checkDate);
 };
 
-//modal and form
-const openForm = ({ title, image }) => {
-  const modal = document.querySelector('.modal-form');
-  const closeModal = document.querySelector('.close');
-  closeModal.addEventListener('click', () => modal.close());
+//add place function
 
-  //data reset
+const addTrip = () => {
+  let trip = '';
+  const keyValue = sessionStorage.length;
+
+  const image = document.querySelector('.place img');
+  const src = image.src;
+  const alt = image.alt;
+  const title = document.querySelector('.place h3').textContent;
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('email').value;
+  const startDate = document.getElementById('start-date').valueAsDate;
+  const endDate = document.getElementById('end-date').valueAsDate;
+  const guide = document.getElementById('yes').checked ? 'yes' : 'no';
+  const friends = document.getElementById('friends-number').value;
+  const transport = document.getElementById('transport').checked;
+  const breakfasts = document.getElementById('breakfasts').checked;
+  const dinners = document.getElementById('dinners').checked;
+  const sauna = document.getElementById('sauna').checked;
+
+  trip = {
+    image: { src, alt },
+    title,
+    firstName,
+    lastName,
+    email,
+    startDate,
+    endDate,
+    guide,
+    friends,
+    amenities: {
+      transport,
+      breakfasts,
+      dinners,
+      sauna,
+    },
+  };
+
+  sessionStorage.setItem(keyValue, JSON.stringify(trip));
+  inputValuesReset();
+};
+
+//input values reset
+
+const inputValuesReset = () => {
   document.getElementById('first-name').value = '';
   document.getElementById('last-name').value = '';
   document.getElementById('email').value = '';
@@ -90,7 +130,12 @@ const openForm = ({ title, image }) => {
   document
     .querySelectorAll('input[type="checkbox"]:checked')
     .forEach((input) => (input.checked = false));
+  initDate();
+};
 
+//modal and form
+const openForm = ({ title, image }) => {
+  inputValuesReset();
   const placeDiv = document.querySelector('.modal-form .place');
   placeDiv.innerHTML = '';
   const modalImage = document.createElement('img');
@@ -129,6 +174,10 @@ const generateAvailablePlaces = (data) => {
   }
 };
 
+const modal = document.querySelector('.modal-form');
+const closeModal = document.querySelector('.close');
+closeModal.addEventListener('click', () => modal.close());
+
 if (document.querySelector('.nav-link.active').textContent === 'Home')
   fetchData(generateTrendingPlaces);
 else if (
@@ -137,4 +186,11 @@ else if (
   console.log(document.querySelector('.nav-link.active').textContent);
 } else {
   fetchData(generateAvailablePlaces);
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!document.querySelector('.date-warning').classList.contains('active')) {
+      addTrip();
+      modal.close();
+    }
+  });
 }
