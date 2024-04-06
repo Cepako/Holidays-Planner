@@ -1,3 +1,7 @@
+let keyId = Math.random() * 10000;
+const EDIT = 'edit',
+  ADD = 'add';
+
 //bars animation
 
 const bars = document.querySelectorAll('.bar');
@@ -74,11 +78,10 @@ const initDate = () => {
   endDate.addEventListener('change', checkDate);
 };
 
-//add place function
+//add or edit place function
 
-const addTrip = () => {
+const addEditTrip = (key, type) => {
   let trip = '';
-  const keyValue = sessionStorage.length;
 
   const image = document.querySelector('.place img');
   const src = image.src;
@@ -113,9 +116,8 @@ const addTrip = () => {
       sauna,
     },
   };
-
-  sessionStorage.setItem(keyValue, JSON.stringify(trip));
-  inputValuesReset();
+  sessionStorage.setItem(key, JSON.stringify(trip));
+  if (type === ADD) inputValuesReset();
 };
 
 //input values reset
@@ -133,19 +135,23 @@ const inputValuesReset = () => {
   initDate();
 };
 
-//modal and form
-const openForm = ({ title, image }) => {
-  const modal = document.querySelector('.modal-form');
-  inputValuesReset();
+const placeImageAndTitle = (imageSrc, imageAlt, title) => {
   const placeDiv = document.querySelector('.modal-form .place');
   placeDiv.innerHTML = '';
   const modalImage = document.createElement('img');
-  modalImage.src = `../images/${image.src}`;
-  modalImage.alt = image.alt;
+  modalImage.src = imageSrc;
+  modalImage.alt = imageAlt;
   const modalTitle = document.createElement('h3');
   modalTitle.textContent = title;
   placeDiv.appendChild(modalImage);
   placeDiv.appendChild(modalTitle);
+};
+
+//modal and form
+const openForm = ({ title, image }) => {
+  const modal = document.querySelector('.modal-form');
+  inputValuesReset();
+  placeImageAndTitle(`../images/${image.src}`, image.alt, title);
 
   initDate();
   modal.showModal();
@@ -175,12 +181,55 @@ const generateAvailablePlaces = (data) => {
   }
 };
 
-const editTrip = (key) => {
-  console.log(key);
+const fillFormWithDate = (data) => {
+  const firstName = document.getElementById('first-name');
+  firstName.value = data.firstName;
+  const lastName = document.getElementById('last-name');
+  lastName.value = data.lastName;
+  const email = document.getElementById('email');
+  email.value = data.email;
+  const startDate = document.getElementById('start-date');
+  startDate.valueAsDate = new Date(data.startDate);
+  const endDate = document.getElementById('end-date');
+  endDate.valueAsDate = new Date(data.endDate);
+  if (data.guide === 'yes') document.getElementById('yes').checked = true;
+  else document.getElementById('no').checked = true;
+
+  const friends = document.getElementById('friends-number');
+  friends.value = data.friends;
+
+  const transport = document.getElementById('transport');
+  if (data.amenities.transport) transport.checked = true;
+  const breakfasts = document.getElementById('breakfasts');
+  if (data.amenities.breakfasts) breakfasts.checked = true;
+  const dinners = document.getElementById('dinners');
+  if (data.amenities.dinners) dinners.checked = true;
+  const sauna = document.getElementById('sauna');
+  if (data.amenities.sauna) sauna.checked = true;
 };
 
+const editTrip = (key) => {
+  const data = JSON.parse(sessionStorage.getItem(key));
+  placeImageAndTitle(data.image.src, data.image.alt, data.title);
+  fillFormWithDate(data);
+
+  const modal = document.querySelector('.modal-form');
+  const closeModal = document.querySelector('.close');
+  closeModal.addEventListener('click', () => modal.close());
+
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    addEditTrip(key, EDIT);
+    modal.close();
+    generateList();
+  });
+
+  modal.showModal();
+};
+//generate trips list
 const generateList = () => {
   const container = document.querySelector('.list-container');
+  container.innerHTML = '';
 
   for (let i = 0; i < sessionStorage.length; i++) {
     const key = sessionStorage.key(i);
@@ -258,7 +307,7 @@ else if (
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     if (!document.querySelector('.date-warning').classList.contains('active')) {
-      addTrip();
+      addEditTrip(keyId, ADD);
       modal.close();
       window.location.href = '../pages/holidays-list.html';
     }
