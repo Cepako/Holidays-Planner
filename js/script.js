@@ -175,12 +175,81 @@ const generateAvailablePlaces = (data) => {
   }
 };
 
+const editTrip = (key) => {
+  console.log(key);
+};
+
+const generateList = () => {
+  const container = document.querySelector('.list-container');
+
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    if (key !== 'IsThisFirstTime_Log_From_LiveServer') {
+      const item = JSON.parse(sessionStorage.getItem(key));
+      console.log(item);
+      const trip = document.createElement('div');
+      trip.classList.add('trip');
+      const img = document.createElement('img');
+      img.src = item.image.src;
+      img.alt = item.image.alt;
+      const title = document.createElement('h3');
+      title.textContent = item.title;
+      const user = document.createElement('p');
+      user.textContent = `User: ${item.firstName} ${item.lastName}`;
+      const email = document.createElement('p');
+      email.textContent = `Email: ${item.email}`;
+      const residence = document.createElement('p');
+      const startDate = item.startDate
+        .split('T')[0]
+        .split('-')
+        .reverse()
+        .join('-');
+      const endDate = item.endDate.split('T')[0].split('-').reverse().join('-');
+      residence.textContent = `Residence: from ${startDate} to ${endDate}`;
+      const groupSize = document.createElement('p');
+      groupSize.textContent = `Group size: ${item.friends}`;
+      const guide = document.createElement('p');
+      guide.textContent = `Guide: ${item.guide === 'yes' ? '✔️' : '❌'}`;
+      const amenities = document.createElement('p');
+      amenities.textContent = 'Amenities:';
+      const amenitiesList = document.createElement('ul');
+      for (const el in item.amenities) {
+        if (item.amenities[el] === true) {
+          const li = document.createElement('li');
+          li.textContent = el;
+          amenitiesList.appendChild(li);
+        }
+      }
+      const editBtn = document.createElement('button');
+      editBtn.textContent = 'Edit';
+      editBtn.classList.add('edit');
+      editBtn.addEventListener('click', () => editTrip(key));
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.classList.add('delete');
+
+      trip.appendChild(img);
+      trip.appendChild(title);
+      trip.appendChild(user);
+      trip.appendChild(email);
+      trip.appendChild(residence);
+      trip.appendChild(groupSize);
+      trip.appendChild(guide);
+      trip.appendChild(amenities);
+      trip.appendChild(amenitiesList);
+      trip.appendChild(editBtn);
+      trip.appendChild(deleteBtn);
+      container.appendChild(trip);
+    }
+  }
+};
+
 if (document.querySelector('.nav-link.active').textContent === 'Home')
   fetchData(generateTrendingPlaces);
 else if (
   document.querySelector('.nav-link.active').textContent === 'Holidays List'
 ) {
-  console.log(document.querySelector('.nav-link.active').textContent);
+  generateList();
 } else {
   fetchData(generateAvailablePlaces);
   const modal = document.querySelector('.modal-form');
@@ -191,6 +260,7 @@ else if (
     if (!document.querySelector('.date-warning').classList.contains('active')) {
       addTrip();
       modal.close();
+      window.location.href = '../pages/holidays-list.html';
     }
   });
 }
