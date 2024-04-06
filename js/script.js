@@ -235,7 +235,6 @@ const generateList = () => {
     const key = sessionStorage.key(i);
     if (key !== 'IsThisFirstTime_Log_From_LiveServer') {
       const item = JSON.parse(sessionStorage.getItem(key));
-      console.log(item);
       const trip = document.createElement('div');
       trip.classList.add('trip');
       const img = document.createElement('img');
@@ -284,8 +283,10 @@ const generateList = () => {
       trip.appendChild(residence);
       trip.appendChild(groupSize);
       trip.appendChild(guide);
-      trip.appendChild(amenities);
-      trip.appendChild(amenitiesList);
+      if (amenitiesList.children.length > 0) {
+        trip.appendChild(amenities);
+        trip.appendChild(amenitiesList);
+      }
       trip.appendChild(editBtn);
       trip.appendChild(deleteBtn);
       container.appendChild(trip);
