@@ -226,6 +226,20 @@ const editTrip = (key) => {
 
   modal.showModal();
 };
+
+const deleteTrip = (key) => {
+  const deleteDialog = document.querySelector('.delete-confirm');
+  const cancelDeleteDialog = document.querySelector('.cancel-delete');
+  cancelDeleteDialog.addEventListener('click', () => deleteDialog.close());
+  const confirm = document.querySelector('.confirm');
+  confirm.addEventListener('click', () => {
+    sessionStorage.removeItem(key);
+    deleteDialog.close();
+    generateList();
+  });
+  deleteDialog.showModal();
+};
+
 //generate trips list
 const generateList = () => {
   const container = document.querySelector('.list-container');
@@ -275,6 +289,7 @@ const generateList = () => {
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = 'Delete';
       deleteBtn.classList.add('delete');
+      deleteBtn.addEventListener('click', () => deleteTrip(key));
 
       trip.appendChild(img);
       trip.appendChild(title);
@@ -290,6 +305,16 @@ const generateList = () => {
       trip.appendChild(editBtn);
       trip.appendChild(deleteBtn);
       container.appendChild(trip);
+    }
+    if (container.children.length <= 0) {
+      const info = document.createElement('p');
+      info.textContent = "Your list is empty! Let's plan your holidays!";
+      info.classList.add('empty-list');
+      const link = document.createElement('a');
+      link.textContent = 'Available Places';
+      link.href = '../pages/available-places.html';
+      container.appendChild(info);
+      container.appendChild(link);
     }
   }
 };
