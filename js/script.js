@@ -244,10 +244,12 @@ const deleteTrip = (key) => {
 const generateList = () => {
   const container = document.querySelector('.list-container');
   container.innerHTML = '';
+  let listIsEmpty = true;
 
   for (let i = 0; i < sessionStorage.length; i++) {
     const key = sessionStorage.key(i);
     if (key !== 'IsThisFirstTime_Log_From_LiveServer') {
+      listIsEmpty = false;
       const item = JSON.parse(sessionStorage.getItem(key));
       const trip = document.createElement('div');
       trip.classList.add('trip');
@@ -306,16 +308,16 @@ const generateList = () => {
       trip.appendChild(deleteBtn);
       container.appendChild(trip);
     }
-    if (container.children.length <= 0) {
-      const info = document.createElement('p');
-      info.textContent = "Your list is empty! Let's plan your holidays!";
-      info.classList.add('empty-list');
-      const link = document.createElement('a');
-      link.textContent = 'Available Places';
-      link.href = '../pages/available-places.html';
-      container.appendChild(info);
-      container.appendChild(link);
-    }
+  }
+  if (listIsEmpty) {
+    const info = document.createElement('p');
+    info.textContent = "Your list is empty! Let's plan your holidays!";
+    info.classList.add('empty-list');
+    const link = document.createElement('a');
+    link.textContent = 'Available Places';
+    link.href = '../pages/available-places.html';
+    container.appendChild(info);
+    container.appendChild(link);
   }
 };
 
