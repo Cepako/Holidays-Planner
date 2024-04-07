@@ -308,14 +308,17 @@ const generateList = () => {
     }
   }
   if (listIsEmpty) {
+    const emptyDiv = document.createElement('div');
+    emptyDiv.classList.add('empty-div');
     const info = document.createElement('p');
     info.textContent = "Your list is empty! Let's plan your holidays!";
     info.classList.add('empty-list');
     const link = document.createElement('a');
     link.textContent = 'Available Places';
     link.href = '../pages/available-places.html';
-    container.appendChild(info);
-    container.appendChild(link);
+    emptyDiv.appendChild(info);
+    emptyDiv.appendChild(link);
+    container.appendChild(emptyDiv);
   }
 };
 

@@ -96,6 +96,9 @@ form #radios label {
   width: 33%;
   font-size: 1em;
 }
+form input[type='radio'] {
+  margin-right: 4%;
+}
 form #checkboxs label {
   width: 45%;
   margin-block: 0;
@@ -113,4 +116,213 @@ dialog button {
 }
 form button {
   margin-block: 5% 2%;
+}
+@media screen and (min-width: 550px) {
+  .places-container {
+    width: 85%;
+    margin: 4% auto;
+  }
+  .places-container .cart {
+    margin: 3% 0;
+  }
+  .places-container .cart p {
+    font-size: 0.9em;
+  }
+  .modal-form {
+    width: 85%;
+  }
+
+  .modal-form .place h3 {
+    margin-block: 3%;
+  }
+
+  form input[type='text'] {
+    width: 60%;
+  }
+  form input[type='email'] {
+    margin-left: 6.5%;
+    width: 60%;
+  }
+  form #radios label {
+    width: 20%;
+    font-size: 1em;
+  }
+
+  legend {
+    margin-block: 1%;
+  }
+  dialog button {
+    margin-left: 25%;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .modal-form {
+    padding: 1% 2%;
+    width: 80%;
+  }
+  .modal-form .place {
+    margin: 0 auto;
+    width: 85%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .places-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .places-container .cart {
+    width: 48%;
+  }
+
+  .modal-form {
+    width: 75%;
+  }
+  .modal-form .place {
+    width: 75%;
+  }
+  .modal-form .place h3 {
+    margin-block: 2%;
+  }
+
+  form input[type='text'] {
+    width: 65%;
+  }
+  form input[type='email'] {
+    margin-left: 6%;
+    width: 65%;
+  }
+  form #radios label {
+    width: 15%;
+  }
+}
+@media screen and (min-width: 850px) {
+  .modal-form {
+    width: 70%;
+  }
+  .modal-form .place {
+    width: 70%;
+  }
+  form input[type='email'] {
+    margin-left: 5.5%;
+  }
+}
+@media screen and (min-width: 950px) {
+  .places-container .cart button {
+    transition: 0.4s;
+  }
+  .places-container .cart button:hover {
+    background-color: #90e0ef;
+    color: black;
+  }
+  .modal-form {
+    width: 65%;
+  }
+  dialog button {
+    transition: 0.4s;
+  }
+  dialog button:hover {
+    background-color: #90e0ef;
+    color: black;
+  }
+}
+@media screen and (min-width: 1035px) {
+  .modal-form {
+    width: 55%;
+  }
+  dialog button {
+    border-radius: 5px;
+    margin-left: 30%;
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .places-container .cart {
+    width: 31%;
+  }
+  .modal-form {
+    width: 45%;
+  }
+  form input[type='email'] {
+    margin-left: 6%;
+  }
+  form #radios label {
+    width: 22.5%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .places-container .cart {
+    margin: 2% 0;
+    width: 32%;
+  }
+
+  .modal-form {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    padding: 1%;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modal-form .wrapper .place {
+    width: 45%;
+  }
+  .modal-form .wrapper form {
+    width: 50%;
+  }
+  .modal-form .wrapper form button {
+    width: 65%;
+    margin-left: 15%;
+  }
+  form label {
+    margin: 1.5% 0;
+    font-size: 1.3em;
+  }
+  form input[type='email'] {
+    margin-left: 7%;
+  }
+
+  form label.date {
+    font-size: 1.2em;
+  }
+
+  legend {
+    margin-block: 3% 2%;
+    font-size: 1.4em;
+  }
+  form #radios label {
+    font-size: 1.1em;
+  }
+  form #checkboxs label {
+    width: 40%;
+    font-size: 1.1em;
+  }
+  .modal-form button {
+    font-size: 1.2em;
+  }
+  .close {
+    width: 32.5%;
+    margin-left: 57.5%;
+    padding: 5px 1%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  form input[type='email'] {
+    margin-left: 5%;
+  }
+  .modal-form .wrapper form button {
+    width: 55%;
+    margin-left: 22.5%;
+  }
+  .close {
+    width: 27.5%;
+    margin-left: 61.25%;
+    padding: 5px 1%;
+  }
+  form #radios label {
+    width: 20%;
+  }
 }

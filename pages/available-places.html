@@ -16,64 +16,68 @@
   </head>
   <body>
     <dialog class="modal-form">
-      <div class="place"></div>
-      <form>
-        <label for="first-name"
-          >First name:
-          <input type="text" id="first-name" name="first-name" required />
-        </label>
-        <label for="last-name"
-          >Last name:
-          <input type="text" id="last-name" name="last-name" required />
-        </label>
-        <label for="email"
-          >E-mail:
-          <input type="email" id="email" name="email" required />
-        </label>
-        <label for="start-date" class="date"
-          >From
-          <input type="date" id="start-date" required />
-        </label>
-        <label for="end-date" class="date"
-          >To
-          <input type="date" id="end-date" required />
-        </label>
-        <p class="date-warning">Choose correct date!</p>
-        <fieldset id="radios">
-          <legend>Guide:</legend>
-          <label for="yes">
-            <input type="radio" id="yes" name="guide" required />With
+      <div class="wrapper">
+        <div class="place"></div>
+        <form>
+          <label for="first-name"
+            >First name:
+            <input type="text" id="first-name" name="first-name" required />
           </label>
-          <label for="no">
-            <input type="radio" id="no" name="guide" required />Without
+          <label for="last-name"
+            >Last name:
+            <input type="text" id="last-name" name="last-name" required />
           </label>
-        </fieldset>
-        <label for="friends-number">Choose group size:</label>
-        <select name="friends" id="friends-number" required>
-          <option value="" disabled selected hidden>
-            Please choose option
-          </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3-4">3-4</option>
-          <option value="5-and-more">5 and more</option>
-        </select>
-        <fieldset id="checkboxs">
-          <legend>Amenities:</legend>
-          <label for="transport">
-            <input type="checkbox" id="transport" />Transport
+          <label for="email"
+            >E-mail:
+            <input type="email" id="email" name="email" required />
           </label>
-          <label for="breakfasts">
-            <input type="checkbox" id="breakfasts" />Breakfasts
+          <label for="start-date" class="date"
+            >From
+            <input type="date" id="start-date" required />
           </label>
-          <label for="dinners">
-            <input type="checkbox" id="dinners" />Dinners
+          <label for="end-date" class="date"
+            >To
+            <input type="date" id="end-date" required />
           </label>
-          <label for="sauna"> <input type="checkbox" id="sauna" />Sauna </label>
-        </fieldset>
-        <button type="submit" class="submit">Add</button>
-      </form>
-      <button class="close">Close</button>
+          <p class="date-warning">Choose correct date!</p>
+          <fieldset id="radios">
+            <legend>Guide:</legend>
+            <label for="yes">
+              <input type="radio" id="yes" name="guide" required />With
+            </label>
+            <label for="no">
+              <input type="radio" id="no" name="guide" required />Without
+            </label>
+          </fieldset>
+          <label for="friends-number">Choose group size:</label>
+          <select name="friends" id="friends-number" required>
+            <option value="" disabled selected hidden>
+              Please choose option
+            </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3-4">3-4</option>
+            <option value="5-and-more">5 and more</option>
+          </select>
+          <fieldset id="checkboxs">
+            <legend>Amenities:</legend>
+            <label for="transport">
+              <input type="checkbox" id="transport" />Transport
+            </label>
+            <label for="breakfasts">
+              <input type="checkbox" id="breakfasts" />Breakfasts
+            </label>
+            <label for="dinners">
+              <input type="checkbox" id="dinners" />Dinners
+            </label>
+            <label for="sauna">
+              <input type="checkbox" id="sauna" />Sauna
+            </label>
+          </fieldset>
+          <button type="submit" class="submit">Add</button>
+        </form>
+        <button class="close">Close</button>
+      </div>
     </dialog>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">

@@ -10,6 +10,29 @@ body {
   color: #edf2f4;
 }
 
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0077b6;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90e0ef;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #caf0f8;
+}
+
 /* navigation */
 
 .navbar {
@@ -97,7 +120,6 @@ body {
 main {
   margin: 20% auto 5%;
   width: 95%;
-  min-height: 65vh;
 }
 
 main h2 {
@@ -161,4 +183,197 @@ footer {
   padding: 5%;
   text-align: center;
   border-top: 1px solid #90e0ef;
+}
+
+@media screen and (min-width: 550px) {
+  .header {
+    margin: 5% auto;
+    width: 90%;
+  }
+  .header p {
+    font-size: 1em;
+  }
+  .header a {
+    width: 50%;
+  }
+  main {
+    margin: 15% auto 5%;
+    width: 90%;
+  }
+
+  main h2 {
+    margin: 5% 0;
+    font-size: 1.3em;
+  }
+
+  .trending-places {
+    width: 90%;
+  }
+  .trending-places .cart {
+    margin: 4% 0;
+  }
+  .trending-places .cart h3 {
+    margin-block: 5%;
+    font-size: 1.3em;
+  }
+  .trending-places .cart p {
+    font-size: 0.9em;
+  }
+  .info {
+    width: 85%;
+  }
+  .info h2 {
+    font-size: 1.4em;
+  }
+  .info p {
+    margin: 4% 0;
+  }
+  footer {
+    padding: 3%;
+  }
+}
+@media screen and (min-width: 700px) {
+  main h2 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 800px) {
+  .header {
+    width: 85%;
+  }
+  .header .title {
+    font-size: 2em;
+  }
+  .header p {
+    font-size: 1.1em;
+  }
+  .header a {
+    width: 45%;
+  }
+  main {
+    margin: 10% auto 5%;
+    width: 85%;
+  }
+  main h2 {
+    margin: 5% 0;
+    font-size: 1.5em;
+  }
+  main p {
+    font-size: 1.2em;
+  }
+  .trending-places {
+    width: 85%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .trending-places .cart {
+    width: 47%;
+  }
+  .info {
+    width: 72.5%;
+  }
+  footer {
+    padding: 2%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .container-fluid {
+    margin-left: 15%;
+  }
+  .navbar .navbar-brand {
+    font-size: 1.4em;
+  }
+
+  .navbar-nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  a.nav-link {
+    font-size: 1.2em;
+  }
+  a.nav-link:hover {
+    color: #90e0ef;
+  }
+  .header {
+    width: 75%;
+  }
+  .header a {
+    padding: 2% 1%;
+    width: 35%;
+    transition: 0.4s;
+  }
+  .header a:hover {
+    background-color: #90e0ef;
+    color: black;
+  }
+  main {
+    margin: 7.5% auto 5%;
+    width: 75%;
+  }
+  .trending-places {
+    width: 85%;
+  }
+  .trending-places .cart {
+    margin: 3% 0;
+    width: 48%;
+  }
+  .info {
+    margin-block: 3%;
+    width: 64%;
+  }
+  footer {
+    padding: 1%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .container-fluid {
+    margin-left: 15%;
+  }
+  .header {
+    width: 70%;
+  }
+  .header a {
+    width: 30%;
+  }
+  .trending-places {
+    width: 85%;
+  }
+  .trending-places .cart {
+    margin: 2% 0;
+    width: 49%;
+  }
+}
+@media screen and (min-width: 1450px) {
+  .container-fluid {
+    margin-left: 17.5%;
+  }
+  .header .title {
+    font-size: 2.2em;
+  }
+  .header p {
+    font-size: 1.3em;
+  }
+  .header a {
+    font-size: 1.2em;
+    width: 30%;
+  }
+  main h2 {
+    margin: 3% 0;
+    font-size: 1.8em;
+  }
+  main p {
+    font-size: 1.4em;
+  }
+  .info h2 {
+    padding: 3% 0;
+    font-size: 1.5em;
+  }
+  .info p {
+    margin: 3% 0;
+    font-size: 1.2em;
+  }
 }
