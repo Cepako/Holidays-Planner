@@ -181,7 +181,9 @@ const generateAvailablePlaces = (data) => {
   }
 };
 
-const fillFormWithDate = (data) => {
+const fillFormWithDate = (data, key) => {
+  const form = document.querySelector('form');
+  form.setAttribute('id', key);
   const firstName = document.getElementById('first-name');
   firstName.value = data.firstName;
   const lastName = document.getElementById('last-name');
@@ -215,18 +217,9 @@ const fillFormWithDate = (data) => {
 const editTrip = (key) => {
   const data = JSON.parse(sessionStorage.getItem(key));
   placeImageAndTitle(data.image.src, data.image.alt, data.title);
-  fillFormWithDate(data);
+  fillFormWithDate(data, key);
 
   const modal = document.querySelector('.modal-form');
-  const closeModal = document.querySelector('.close');
-  closeModal.addEventListener('click', () => modal.close());
-
-  document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    addEditTrip(key, EDIT);
-    modal.close();
-    generateList();
-  });
 
   modal.showModal();
 };
@@ -257,6 +250,7 @@ const generateList = () => {
       const item = JSON.parse(sessionStorage.getItem(key));
       const trip = document.createElement('div');
       trip.classList.add('trip');
+      trip.setAttribute('id', key);
       const img = document.createElement('img');
       img.src = item.image.src;
       img.alt = item.image.alt;
@@ -331,6 +325,18 @@ else if (
   document.querySelector('.nav-link.active').textContent === 'Holidays List'
 ) {
   generateList();
+
+  const modal = document.querySelector('.modal-form');
+  const closeModal = document.querySelector('.close');
+  closeModal.addEventListener('click', () => modal.close());
+
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const key = e.target.id;
+    addEditTrip(key, EDIT);
+    modal.close();
+    generateList();
+  });
 } else {
   fetchData(generateAvailablePlaces);
   const modal = document.querySelector('.modal-form');
