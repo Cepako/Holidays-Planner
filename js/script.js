@@ -18,8 +18,8 @@ document
 
 const fetchData = async (passedFunction, isHomePage) => {
   let response;
-  if (isHomePage) response = await fetch('./places.json');
-  else response = await fetch('../places.json');
+  if (isHomePage) response = await fetch('./data/places.json');
+  else response = await fetch('../data/places.json');
 
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
