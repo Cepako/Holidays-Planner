@@ -16,8 +16,10 @@ document
 
 //data fetching
 
-const fetchData = async (passedFunction) => {
-  const response = await fetch('../places.json');
+const fetchData = async (passedFunction, isHomePage) => {
+  let response;
+  if (isHomePage) response = await fetch('./places.json');
+  else response = await fetch('../places.json');
 
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
@@ -323,7 +325,7 @@ const generateList = () => {
 };
 
 if (document.querySelector('.nav-link.active').textContent === 'Home')
-  fetchData(generateTrendingPlaces);
+  fetchData(generateTrendingPlaces, true);
 else if (
   document.querySelector('.nav-link.active').textContent === 'Holidays List'
 ) {
@@ -341,7 +343,7 @@ else if (
     generateList();
   });
 } else {
-  fetchData(generateAvailablePlaces);
+  fetchData(generateAvailablePlaces, false);
   const modal = document.querySelector('.modal-form');
   const closeModal = document.querySelector('.close');
   closeModal.addEventListener('click', () => modal.close());
