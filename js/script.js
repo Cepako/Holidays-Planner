@@ -200,12 +200,16 @@ const fillFormWithDate = (data) => {
 
   const transport = document.getElementById('transport');
   if (data.amenities.transport) transport.checked = true;
+  else transport.checked = false;
   const breakfasts = document.getElementById('breakfasts');
   if (data.amenities.breakfasts) breakfasts.checked = true;
+  else breakfasts.checked = false;
   const dinners = document.getElementById('dinners');
   if (data.amenities.dinners) dinners.checked = true;
+  else dinners.checked = false;
   const sauna = document.getElementById('sauna');
   if (data.amenities.sauna) sauna.checked = true;
+  else sauna.checked = false;
 };
 
 const editTrip = (key) => {
