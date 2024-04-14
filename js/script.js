@@ -196,6 +196,20 @@ const fillFormWithDate = (data, key) => {
   startDate.valueAsDate = new Date(data.startDate);
   const endDate = document.getElementById('end-date');
   endDate.valueAsDate = new Date(data.endDate);
+
+  const dateWarning = document.querySelector('.date-warning');
+
+  const checkDate = () => {
+    const startDateValue = new Date(startDate.value);
+    const endDateValue = new Date(endDate.value);
+
+    if (endDateValue <= startDateValue) dateWarning.classList.add('active');
+    else dateWarning.classList.remove('active');
+  };
+  checkDate();
+  startDate.addEventListener('change', checkDate);
+  endDate.addEventListener('change', checkDate);
+
   if (data.guide === 'yes') document.getElementById('yes').checked = true;
   else document.getElementById('no').checked = true;
 
@@ -337,10 +351,12 @@ else if (
 
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const key = e.target.id;
-    addEditTrip(key, EDIT);
-    modal.close();
-    generateList();
+    if (!document.querySelector('.date-warning').classList.contains('active')) {
+      const key = e.target.id;
+      addEditTrip(key, EDIT);
+      modal.close();
+      generateList();
+    }
   });
 } else {
   fetchData(generateAvailablePlaces, false);
