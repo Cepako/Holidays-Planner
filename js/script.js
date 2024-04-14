@@ -149,6 +149,37 @@ const placeImageAndTitle = (imageSrc, imageAlt, title) => {
   placeDiv.appendChild(modalTitle);
 };
 
+const inputValidations = () => {
+  const firstName = document.getElementById('first-name');
+  const nameWarning = document.querySelector('.name-warning');
+
+  const checkName = () => {
+    const value = firstName.value;
+    if (value.split(' ').length > 1) nameWarning.classList.add('active');
+    else nameWarning.classList.remove('active');
+  };
+  checkName();
+  firstName.addEventListener('change', checkName);
+
+  const lastName = document.getElementById('last-name');
+
+  const lastNameWarning = document.querySelector('.last-name-warning');
+
+  const checkLastName = () => {
+    const value = lastName.value;
+    let isValid = true;
+    if (value.includes('-')) {
+      const lastNames = value.split('-');
+      lastNames.forEach((el) => (el.length < 4 ? (isValid = false) : null));
+    }
+    if (value.split(' ').length > 1) isValid = false;
+    if (isValid) lastNameWarning.classList.remove('active');
+    else lastNameWarning.classList.add('active');
+  };
+  checkLastName();
+  lastName.addEventListener('change', checkLastName);
+}
+
 //modal and form
 const openForm = ({ title, image }) => {
   const modal = document.querySelector('.modal-form');
@@ -156,6 +187,8 @@ const openForm = ({ title, image }) => {
   placeImageAndTitle(`../images/${image.src}`, image.alt, title);
 
   initDate();
+  inputValidations();
+  
   modal.showModal();
 };
 
@@ -190,6 +223,7 @@ const fillFormWithDate = (data, key) => {
   firstName.value = data.firstName;
   const lastName = document.getElementById('last-name');
   lastName.value = data.lastName;
+  inputValidations();
   const email = document.getElementById('email');
   email.value = data.email;
   const startDate = document.getElementById('start-date');
@@ -340,35 +374,37 @@ const generateList = () => {
 
 if (document.querySelector('.nav-link.active').textContent === 'Home')
   fetchData(generateTrendingPlaces, true);
-else if (
-  document.querySelector('.nav-link.active').textContent === 'Holidays List'
-) {
-  generateList();
-
+else {
   const modal = document.querySelector('.modal-form');
   const closeModal = document.querySelector('.close');
   closeModal.addEventListener('click', () => modal.close());
 
+  if (document.querySelector('.nav-link.active').textContent === 'Holidays List')
+  {
+    generateList();
+  }
+  else {
+    fetchData(generateAvailablePlaces, false);
+  }
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!document.querySelector('.date-warning').classList.contains('active')) {
-      const key = e.target.id;
-      addEditTrip(key, EDIT);
+    if (
+      !document.querySelector('.date-warning').classList.contains('active') &&
+      !document.querySelector('.name-warning').classList.contains('active') &&
+      !document.querySelector('.last-name-warning').classList.contains('active')
+    ) {
+      if (document.querySelector('.nav-link.active').textContent === 'Holidays List')
+      {
+        const key = e.target.id;
+        addEditTrip(key, EDIT);
+        generateList();
+        
+      }
+      else {
+        addEditTrip(keyId, ADD);
+        window.location.href = '../pages/holidays-list.html';
+      }
       modal.close();
-      generateList();
     }
   });
-} else {
-  fetchData(generateAvailablePlaces, false);
-  const modal = document.querySelector('.modal-form');
-  const closeModal = document.querySelector('.close');
-  closeModal.addEventListener('click', () => modal.close());
-  document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!document.querySelector('.date-warning').classList.contains('active')) {
-      addEditTrip(keyId, ADD);
-      modal.close();
-      window.location.href = '../pages/holidays-list.html';
-    }
-  });
-}
+} 

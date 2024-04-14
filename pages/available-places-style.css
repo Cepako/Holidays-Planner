@@ -57,12 +57,12 @@ dialog::backdrop {
 .modal-form .place h3 {
   margin-block: 5px;
 }
-.modal-form .date-warning {
+.modal-form .date-warning, .name-warning, .last-name-warning {
   margin: 0;
   display: none;
   color: red;
 }
-.modal-form .date-warning.active {
+.modal-form .date-warning.active, .name-warning.active, .last-name-warning.active {
   display: block;
 }
 

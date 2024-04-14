@@ -27,12 +27,14 @@
         <form>
           <label for="first-name"
             >First name:
-            <input type="text" id="first-name" name="first-name" required >
+            <input type="text" id="first-name" name="first-name" required minlength="3">
           </label>
+          <p class="name-warning">Fill in the name correctly!</p>
           <label for="last-name"
             >Last name:
-            <input type="text" id="last-name" name="last-name" required >
+            <input type="text" id="last-name" name="last-name" required minlength="3" >
           </label>
+          <p class="last-name-warning">Fill in the last-name correctly!</p>
           <label for="email"
             >E-mail:
             <input type="email" id="email" name="email" required >
